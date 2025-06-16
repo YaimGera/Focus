@@ -1,0 +1,258 @@
+/* Estilos adicionales para la nueva sección informativa */
+.info-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+.info-section h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+    word-wrap: break-word; /* Rompe palabras largas si el título es extenso */
+}
+
+.info-section h3 {
+    color: #007bff;
+    font-size: 1.4em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+.info-section p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.info-section ul li {
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 0.95em;
+    color: #333;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    flex-wrap: wrap; /* Permite que el contenido se envuelva en pantallas pequeñas */
+}
+
+.info-section ul li i {
+    color: #007bff;
+    font-size: 1.2em;
+    margin-top: 3px;
+    flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.info-section .concepto-destacado {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.info-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+    /* Usaremos esto en la media query para desktop para mejor control */
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.info-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    text-align: center;
+    box-sizing: border-box; /* Crucial para la responsividad de las tarjetas */
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-item i {
+    color: #007bff;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.info-item h3 {
+    color: #34495e;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+.info-item p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+.call-to-action-info {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9f7fe;
+    border-radius: 8px;
+    border-left: 5px solid #007bff;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+.call-to-action-info p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 15px;
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+
+/* ------------------------------------------- */
+/* Media Queries para Responsividad           */
+/* ------------------------------------------- */
+
+/* Estilos para pantallas grandes (Desktop, Tablets en horizontal) */
+@media (min-width: 769px) {
+    .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Aplica el grid aquí para desktop */
+    }
+}
+
+/* Estilos para Tablets (vertical) y móviles grandes */
+@media (max-width: 768px) {
+    .info-section {
+        padding: 20px; /* Reduce el padding general */
+        margin-top: 20px;
+    }
+
+    .info-section h2 {
+        font-size: 1.6em; /* Reduce el tamaño del título principal */
+        margin-bottom: 15px;
+    }
+
+    .info-section h3 {
+        font-size: 1.2em; /* Reduce el tamaño de los subtítulos */
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .info-section p {
+        font-size: 0.95em; /* Ligeramente más pequeño el texto de párrafo */
+    }
+
+    .info-section ul li {
+        padding: 12px 15px; /* Reduce el padding de los elementos de la lista */
+        font-size: 0.9em; /* Reduce el tamaño de la fuente de la lista */
+        flex-direction: column; /* Apila icono y texto si es necesario para evitar desbordamiento */
+        align-items: flex-start; /* Alinea los elementos apilados a la izquierda */
+        gap: 5px; /* Reduce el espacio entre icono y texto apilados */
+    }
+
+    .info-section ul li i {
+        font-size: 1.1em; /* Ajusta el tamaño del icono */
+        margin-bottom: 5px; /* Espacio debajo del icono cuando se apila */
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr; /* Una columna para las tarjetas en móviles */
+        gap: 20px; /* Reduce el espacio entre las tarjetas */
+    }
+
+    .info-item {
+        padding: 18px; /* Reduce el padding de las tarjetas */
+    }
+
+    .info-item i {
+        font-size: 2em; /* Ajusta el tamaño del icono de la tarjeta */
+        margin-bottom: 10px;
+    }
+
+    .info-item h3 {
+        font-size: 1.1em; /* Ajusta el tamaño del título de la tarjeta */
+    }
+
+    .info-item p {
+        font-size: 0.9em; /* Ajusta el texto de la tarjeta */
+    }
+
+    .call-to-action-info {
+        padding: 15px; /* Reduce el padding de la sección de llamado a la acción */
+    }
+
+    .call-to-action-info p {
+        font-size: 1em; /* Ajusta el texto del llamado a la acción */
+    }
+}
+
+/* Estilos para móviles pequeños */
+@media (max-width: 480px) {
+    .info-section {
+        padding: 15px; /* Más reducción de padding */
+        margin-top: 15px;
+    }
+
+    .info-section h2 {
+        font-size: 1.4em; /* Más reducción del tamaño del título */
+        margin-bottom: 10px;
+    }
+
+    .info-section h3 {
+        font-size: 1.1em; /* Más reducción del tamaño del subtítulo */
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+
+    .info-section p {
+        font-size: 0.88em; /* Más reducción del texto de párrafo */
+    }
+
+    .info-section ul li {
+        padding: 10px 12px; /* Más reducción del padding de los elementos de la lista */
+        font-size: 0.85em; /* Más reducción de la fuente de la lista */
+    }
+
+    .info-item {
+        padding: 15px; /* Más reducción del padding de las tarjetas */
+    }
+
+    .info-item i {
+        font-size: 1.8em; /* Más reducción del icono de la tarjeta */
+        margin-bottom: 8px;
+    }
+
+    .info-item h3 {
+        font-size: 1em; /* Más reducción del título de la tarjeta */
+    }
+
+    .info-item p {
+        font-size: 0.85em; /* Más reducción del texto de la tarjeta */
+    }
+
+    .call-to-action-info {
+        padding: 12px; /* Más reducción del padding del llamado a la acción */
+    }
+
+    .call-to-action-info p {
+        font-size: 0.95em; /* Más reducción del texto del llamado a la acción */
+    }
+}

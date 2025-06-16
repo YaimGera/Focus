@@ -1,0 +1,468 @@
+:root {
+    /* Consistent color palette */
+    --primary-bg: #f8fafc; /* Light background */
+    --secondary-bg: #ffffff; /* Card/form background */
+    --header-footer-bg: #1a202c; /* Dark header/footer for contrast */
+    --accent-green: #10b981; /* Primary accent green */
+    --dark-accent-green: #059669; /* Darker accent for hover */
+    --text-dark: #1f2937; /* Dark text */
+    --text-muted: #6b7280; /* Muted gray text */
+    --border-light: #e5e7eb; /* Light borders */
+    --shadow-subtle: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.15);
+    --error-red: #ef4444;
+    --error-bg: #fef2f2;
+    --error-border: #fecaca;
+    --success-green: #22c55e;
+    --success-bg: #f0fdf4;
+    --success-border: #bbf7d0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-bg);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--primary-bg) 0%, #e2e8f0 100%);
+}
+
+/* --- Header (Copied for consistency) --- */
+header {
+    background-color: var(--header-footer-bg);
+    padding: 15px 30px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px var(--shadow-strong);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    cursor: default;
+    color: var(--accent-green);
+}
+
+/* Oculta el menú hamburguesa si estaba presente, ya no lo necesitamos */
+.menu-toggle {
+    display: none;
+}
+
+/* Estilos para el texto y los iconos en la navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+nav ul li {
+    margin-left: 35px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-bg);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    padding-bottom: 5px;
+    display: flex; /* Permite alinear icono y texto si son visibles */
+    align-items: center;
+    gap: 8px; /* Espacio entre icono y texto */
+}
+/* Ocultar iconos por defecto en desktop */
+nav ul li a i {
+    display: none;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-green);
+    transition: width 0.3s ease;
+}
+nav ul li a:hover::after, nav ul li a.active-link::after {
+    width: 100%;
+}
+nav ul li a:hover {
+    color: var(--accent-green);
+    transform: translateY(-2px);
+}
+
+/* --- Main Content Container --- */
+.main-content-wrapper {
+    flex-grow: 1;
+    padding: 60px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 4px;
+    background-color: var(--accent-green);
+    border-radius: 2px;
+}
+
+/* Messages (Error/Success) */
+.message {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    animation: slideIn 0.4s ease-out;
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+.error-message {
+    color: var(--error-red);
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-border);
+}
+.success-message {
+    color: var(--success-green);
+    background-color: var(--success-bg);
+    border: 1px solid var(--success-border);
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Testimonials Display Section --- */
+.testimonials-display {
+    width: 100%;
+    max-width: 800px; /* Wider for testimonials display */
+    margin-bottom: 60px; /* Space between display and form */
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--secondary-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow-medium);
+    padding: 30px;
+    text-align: left;
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeInCard 0.6s ease-out forwards;
+    opacity: 0; /* Start hidden for animation */
+}
+@keyframes fadeInCard {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-card:nth-child(even) { /* Slightly different shadow for variety */
+     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.testimonial-card .testimonial-content {
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.testimonial-card .testimonial-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: auto; /* Pushes meta to the bottom */
+    padding-top: 15px;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.testimonial-card .testimonial-meta strong {
+    color: var(--accent-green);
+    font-weight: 600;
+}
+.testimonial-card .testimonial-meta i {
+    margin-right: 5px;
+    color: var(--text-muted);
+}
+.no-testimonials {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+}
+
+/* --- Testimonial Submission Form Section --- */
+.testimonial-form-section {
+    width: 100%;
+    max-width: 600px; /* Consistent form width */
+    background-color: var(--secondary-bg);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px var(--shadow-medium);
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.testimonial-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.testimonial-form label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+.testimonial-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: var(--primary-bg);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    min-height: 150px;
+    resize: vertical;
+}
+
+.testimonial-form textarea:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    outline: none;
+}
+
+.testimonial-form button[type="submit"] {
+    background-color: var(--accent-green);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+.testimonial-form button[type="submit"]:hover {
+    background-color: var(--dark-accent-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-strong);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 40px; /* More space for back link */
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 3px;
+}
+.back-link::before {
+    content: '\f060'; /* Unicode for angle-left icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 8px;
+    color: var(--accent-green);
+}
+.back-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-green);
+    transition: width 0.3s ease;
+}
+.back-link:hover {
+    color: var(--accent-green);
+}
+.back-link:hover::after {
+    width: 100%;
+}
+
+/* --- Footer (Copied for consistency) --- */
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+    font-size: 0.95rem;
+    box-shadow: 0 -2px 8px var(--shadow-strong);
+}
+
+/* --- Responsive Design for Mobile (Icon Bar) --- */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        /* El logo se mantiene a la izquierda, la navegación a la derecha */
+    }
+
+    /* Ocultar el texto de navegación en pantallas pequeñas */
+    .nav-text {
+        display: none;
+    }
+
+    /* Mostrar los iconos en pantallas pequeñas */
+    nav ul li a i {
+        display: inline-block; /* Asegura que el icono sea visible */
+        font-size: 1.6rem; /* Tamaño del icono */
+        margin: 0; /* Elimina márgenes extra si los hay */
+    }
+
+    /* Reorganizar la navegación como una barra inferior */
+    nav {
+        position: fixed; /* Fija la barra en la parte inferior */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-footer-bg); /* Fondo oscuro */
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Sombra hacia arriba */
+        z-index: 1000;
+        padding: 10px 0; /* Espacio para la barra */
+    }
+
+    nav ul {
+        display: flex; /* Para alinear los iconos horizontalmente */
+        justify-content: space-around; /* Distribuye los iconos uniformemente */
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        flex: 1; /* Hace que cada ítem ocupe el mismo espacio */
+        text-align: center; /* Centra el icono en cada ítem */
+        margin: 0; /* Elimina los márgenes entre ítems */
+    }
+
+    nav ul li a {
+        display: flex; /* Usa flexbox para centrar el icono dentro del enlace */
+        flex-direction: column; /* Apila el icono y cualquier texto si lo hubiera (aunque aquí se ocultará) */
+        align-items: center; /* Centra horizontalmente */
+        justify-content: center; /* Centra verticalmente */
+        padding: 8px 0; /* Ajusta el padding para los iconos */
+        color: var(--primary-bg); /* Color del icono */
+        font-size: 0.8rem; /* Tamaño de fuente si hubiera texto pequeño debajo del icono */
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        background-color: transparent; /* No hay fondo al pasar el ratón */
+        color: var(--accent-green); /* Color del icono al pasar el ratón */
+        transform: none; /* Elimina la transformación al pasar el ratón */
+    }
+
+    /* Eliminar la línea de subrayado en móvil */
+    .nav-link::after {
+        display: none;
+    }
+
+    /* Ajustar el padding del cuerpo para que el contenido no quede debajo de la barra fija */
+    body {
+        padding-bottom: 70px; /* Asegúrate de que este valor sea mayor que la altura de tu barra de navegación móvil */
+    }
+
+    /* Ajustes para el contenido principal en móvil */
+    .main-content-wrapper {
+        padding: 40px 15px;
+    }
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+    .testimonials-display, .testimonial-form-section {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Stack testimonials on small screens */
+        gap: 20px;
+    }
+    .testimonial-card {
+        padding: 25px;
+    }
+    .testimonial-card .testimonial-content {
+        font-size: 0.95rem;
+    }
+    .testimonial-card .testimonial-meta {
+        font-size: 0.85rem;
+    }
+    .testimonial-form label {
+        font-size: 0.95rem;
+    }
+    .testimonial-form textarea {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    .testimonial-form button[type="submit"] {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .message {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 1.8rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}

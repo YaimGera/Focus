@@ -1,0 +1,207 @@
+/* css/my_course.css */
+img {
+    max-width: 35%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.centro {
+    text-align: center;
+}
+
+img:hover {
+    transform: translateY(-5px) scale(1.01);
+}
+
+.course-detail-wrapper {
+    flex-grow: 1;
+    padding: 60px 25px;
+    text-align: center;
+    max-width: 900px; /* Ancho máximo para la tarjeta de detalles */
+    margin: 40px auto; /* Centrar la tarjeta */
+}
+
+.course-detail-card {
+    background-color: var(--secondary-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow-medium);
+    padding: 40px;
+    text-align: left;
+    border: 1px solid var(--border-light);
+    animation: fadeInCard 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.course-detail-card h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.free-tag-large {
+    background-color: var(--accent-green);
+    color: white;
+    font-size: 1.2rem;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.course-meta {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+}
+.course-meta p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+.course-meta p strong {
+    color: var(--text-dark);
+}
+.course-meta p i {
+    margin-right: 10px;
+    color: var(--accent-green);
+}
+
+.course-description h2,
+.instructor-section h2,
+.course-content-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-top: 40px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.course-description h2::after,
+.instructor-section h2::after,
+.course-content-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-green);
+    border-radius: 2px;
+}
+
+.course-description p,
+.course-content-section p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.instructor-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid #eee;
+}
+
+.instructor-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-green);
+    box-shadow: 0 4px 10px var(--shadow-subtle);
+}
+
+.instructor-details h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.instructor-bio {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Reutilizar estilos de .back-link de cursos.css */
+.course-detail-wrapper .back-link {
+    margin-top: 30px;
+    margin-left: 15px; /* Ajuste para separar los enlaces */
+    margin-right: 15px;
+    display: inline-block;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .course-detail-wrapper {
+        padding: 30px 15px;
+        margin: 20px auto;
+    }
+    .course-detail-card {
+        padding: 25px;
+    }
+    .course-detail-card h1 {
+        font-size: 2.2rem;
+    }
+    .free-tag-large {
+        font-size: 1rem;
+        padding: 6px 15px;
+    }
+    .course-description h2,
+    .instructor-section h2,
+    .course-content-section h2 {
+        font-size: 1.8rem;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .course-description p,
+    .course-content-section p,
+    .course-meta p {
+        font-size: 1rem;
+    }
+    .instructor-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+    .instructor-photo {
+        width: 100px;
+        height: 100px;
+    }
+    .instructor-details h3 {
+        font-size: 1.5rem;
+    }
+    .instructor-bio {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-detail-card h1 {
+        font-size: 1.8rem;
+    }
+    .course-description h2,
+    .instructor-section h2,
+    .course-content-section h2 {
+        font-size: 1.5rem;
+    }
+    .course-meta p,
+    .course-description p,
+    .course-content-section p,
+    .instructor-bio {
+        font-size: 0.9rem;
+    }
+}
